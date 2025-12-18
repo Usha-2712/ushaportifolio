@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Portfolio - Showcasing my skills, projects, and experience">
+    <title>Home-ushalalam</title>
+    <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold' font-family='Arial, sans-serif'>H</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --text-color: #333;
+            --text-light: #666;
+            --bg-color: #fff;
+            --bg-light: #f8f9fa;
+            --border-color: #e1e4e8;
+            --sidebar-width: 280px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--bg-color);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background-color: var(--bg-light);
+            background-image: url('white nude menu background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-right: 1px solid var(--border-color);
+            padding: 2rem;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.7);
+            z-index: -1;
+        }
+
+        .sidebar-header {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 400;
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            width: 100%;
+        }
+
+        .sidebar-nav a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .sidebar-nav a.active {
+            color: var(--secondary-color);
+            background-color: rgba(52, 152, 219, 0.15);
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--border-color);
+        }
+
+        .profile-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .profile-title {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-bio {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .social-links a img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .social-links a:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 3rem 4rem;
+            width: calc(100% - var(--sidebar-width));
+            max-width: none;
+        }
+
+        /* Content Section Background */
+        .content-section {
+            position: relative;
+        }
+
+        #home,
+        #home-page2,
+        #about {
+            background-image: url('background !.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            margin-left: calc(-3rem);
+            margin-right: calc(-4rem);
+            padding-left: 3rem;
+            padding-right: 4rem;
+            width: calc(100vw - var(--sidebar-width));
+            transition: background-image 0.5s ease;
+        }
+
+        #home.credit-background,
+        #home-page2.credit-background {
+            background-image: url('credit image background.jpg');
+        }
+
+        #home.wineyard-background,
+        #home-page2.wineyard-background {
+            background-image: url('eff rainbow.jpg');
+        }
+
+        #home::before,
+        #home-page2::before,
+        #about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 0;
+        }
+
+        #home > *,
+        #home-page2 > *,
+        #about > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .greeting {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        /* Featured Section */
+        .featured-section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .featured-post {
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .featured-post:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .post-date {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .post-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .post-title a:hover {
+            color: var(--secondary-color);
+        }
+
+        .post-title a img {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .post-title a:hover img {
+            opacity: 1;
+        }
+
+        .post-excerpt {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Latest Articles */
+        .latest-section {
+            margin-bottom: 4rem;
+        }
+
+        .article-list {
+            list-style: none;
+        }
+
+        .article-item {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-item:last-child {
+            border-bottom: none;
+        }
+
+        .article-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            background-color: var(--bg-light);
+        }
+
+        .article-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .article-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-title a:hover {
+            color: var(--secondary-color);
+        }
+
+        .article-title a img {
+            width: 18px;
+            height: 18px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .article-title a:hover img {
+            opacity: 1;
+        }
+
+        .article-date {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            white-space: nowrap;
+            margin-left: 1rem;
+        }
+
+        .article-excerpt {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .pagination-info {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .pagination-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .pagination-button:hover {
+            background-color: var(--border-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .pagination-button:active {
+            transform: translateY(0);
+        }
+
+        .pagination-arrow {
+            width: 0;
+            height: 0;
+            border-left: 6px solid var(--text-light);
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            margin-left: 2px;
+        }
+
+        .pagination-button:hover .pagination-arrow {
+            border-left-color: var(--primary-color);
+        }
+
+        .pagination-button.prev .pagination-arrow {
+            border-left: none;
+            border-right: 6px solid var(--text-light);
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            margin-left: -2px;
+            margin-right: 2px;
+        }
+
+        .pagination-button.prev:hover .pagination-arrow {
+            border-right-color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            margin-left: var(--sidebar-width);
+            padding: 2rem 4rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 2rem;
+                width: 100%;
+            }
+
+            .content-section {
+                margin-left: calc(-2rem);
+                margin-right: calc(-2rem);
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            #home,
+            #home-page2,
+            #about {
+                width: 100vw;
+                margin-left: calc(-2rem);
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            .footer {
+                margin-left: 0;
+                padding: 2rem;
+            }
+
+            .mobile-toggle {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 1001;
+                background: var(--bg-color);
+                border: 1px solid var(--border-color);
+                padding: 0.5rem 1rem;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .mobile-toggle {
+                display: none;
+            }
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 700px;
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background-color: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            background-color: #ffffff;
+            border-color: var(--secondary-color);
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .skill-list li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-toggle" onclick="toggleSidebar()">☰ Menu</button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="sidebar-title">Portifolio</h1>
+        </div>
+        
+        <nav>
+            <ul class="sidebar-nav">
+                <li><a href="#home" class="active" onclick="showSection('home'); return false;"><h3>Home</h3></a></li>
+                <li><a href="#about" onclick="showSection('about'); return false;"><h3>About</h3></a></li>
+            </ul>
+        </nav>
+
+        <div class="profile-section">
+            <!-- Replace with your profile image URL -->
+            <img src="ushaportifoliopic.jpeg" alt="Profile Picture" class="profile-img" id="profileImg">
+            <h2 class="profile-name">Usha Lalam</h2>
+            <p class="profile-title"><b>Data Analyst</b></p>
+            <p class="sidebar-bio">
+                This is the place where i showcase my work, projects, and professional experience.
+            </p>
+        </div>
+
+        <div class="social-links">
+            <a href="https://github.com/Usha-2712" target="_blank" title="GitHub"><img src="github.png" alt="GitHub"></a>
+            <a href="https://www.linkedin.com/in/usha-lalam-025028211/" target="_blank" title="LinkedIn"><img src="linkedin.png" alt="LinkedIn"></a>
+            <a href="mailto:lalamusha630@gmail.com" title="Email"><img src="gmail.png" alt="Email"></a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="content-section">
+            <h1 class="greeting"><b>Hi there!</b></h1>
+            
+            <div class="featured-section">
+                <div class="section-header">
+                    <span class="section-title">Featured</span>
+                </div>
+                
+                <article class="featured-post">
+                    <div class="post-date">Featured / May, 2025</div>
+                    <h2 class="post-title">
+                        <a href="https://github.com/Usha-2712/AI-Driven-Transaction-Processing-System" target="_blank">
+                            <img src="github.png" alt="GitHub">AI-Driven Transaction Processing System with AWS DynamoDB
+                        </a>
+                    </h2>
+                    <p class="post-excerpt">
+                        Developed an AI-driven chatbot using Large Language Models (LLMs) integrated with AWS DynamoDB for real-time transaction processing.Leveraged OCR models and Open AI APIs for text extraction and structured data generation.    Enabled dynamic database updates, intelligentissue resolution, and seamless transaction confirmation.
+                    </p>
+                </article>
+            </div>
+
+            <div class="latest-section">
+                <div class="section-header">
+                    <span class="section-title">Latest Projects</span>
+                </div>
+                
+                <ul class="article-list">
+                    <li class="article-item wineyard-project">
+                        <div class="article-header">
+                            <h3 class="article-title">
+                                <a href="https://github.com/Usha-2712/WineyardAnalysis" target="_blank">
+                                    <img src="github.png" alt="GitHub">WineyardAnalysis
+                                </a>
+                            </h3>
+                            <span class="article-date">December, 2025</span>
+                        </div>
+                        <p class="article-excerpt">
+                            Built and analyzed a centralized data warehouse by integrating sales, wine club, event, and marketing data from OrderPort, Tock, and Constant Contact.
+                            Performed customer behavior, cross-visitation, event engagement, and marketing analytics using Python, SQL, PostgreSQL, and AWS.
+                            Delivered actionable insights to identify high-value members, non-member conversion opportunities, and engagement trends.
+                        </p>
+                    </li>
+
+                    <li class="article-item">
+                        <div class="article-header">
+                            <h3 class="article-title">
+                                <a href="https://github.com/Usha-2712/Launch-Host" target="_blank">
+                                    <img src="github.png" alt="GitHub">Launch Host
+                                </a>
+                            </h3>
+                            <span class="article-date">June, 2025</span>
+                        </div>
+                        <p class="article-excerpt">
+                            Designed a scalable cloud hosting platform using Docker, AWS ECS, S3, and CDN, enabling efficient code deployment with parallelism and real-time log processing via Kafka and ClickHouse DB.
+                        </p>
+                    </li>
+
+                    <li class="article-item credit-score-project">
+                        <div class="article-header">
+                            <h3 class="article-title">
+                                <a href="https://github.com/Usha-2712/credit_score_prediction" target="_blank">
+                                    <img src="github.png" alt="GitHub">Credit Score Prediction
+                                </a>
+                            </h3>
+                            <span class="article-date">April, 2025</span>
+                        </div>
+                        <p class="article-excerpt">
+                            This project applies Machine Learning and Deep Learning techniques to predict individual credit scores, aiming to improve the fairness, accuracy, and interpretability of financial decision-making.
+                            This project focuses on building predictive models for credit score classification using: Machine Learning Models: Logistic Regression, K-Nearest Neighbors, Naive Bayes, Decision Tree, Random Forest, Support Vector Machine (SVM), XGBoost, and CatBoost.Deep Learning Model: A Feedforward Neural Network (FNN) implemented with TensorFlow/Keras.
+                            Our goal was to compare traditional ML models with a neural network approach and to deploy a robust, user-friendly credit prediction system.
+
+                        </p>
+                    </li>
+                </ul>
+
+                <div class="pagination" id="home-pagination">
+                    <span class="pagination-info" id="page-info">PAGE 1 OF 2</span>
+                    <a href="#" class="pagination-button next" id="next-page" onclick="goToPage(2); return false;">
+                        <span class="pagination-arrow"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Home Section Page 2 -->
+        <section id="home-page2" class="content-section" style="display: none;">
+            <h1 class="greeting"><b>Hi there!</b></h1>
+            
+            <div class="latest-section">
+                <div class="section-header">
+                    <span class="section-title">More Projects</span>
+                </div>
+                
+                <ul class="article-list">
+                    <li class="article-item">
+                        <div class="article-header">
+                            <h3 class="article-title">
+                                <a href="https://github.com/Usha-2712/project-5" target="_blank">
+                                    <img src="github.png" alt="GitHub">Project Title 5
+                                </a>
+                            </h3>
+                            <span class="article-date">March, 2025</span>
+                        </div>
+                        <p class="article-excerpt">
+                            Description of your project on page 2. Include details about what problem it solves, technologies used, and key achievements.
+                        </p>
+                    </li>
+
+                    <li class="article-item">
+                        <div class="article-header">
+                            <h3 class="article-title">
+                                <a href="https://github.com/Usha-2712/project-6" target="_blank">
+                                    <img src="github.png" alt="GitHub">Project Title 6
+                                </a>
+                            </h3>
+                            <span class="article-date">February, 2025</span>
+                        </div>
+                        <p class="article-excerpt">
+                            Description of another project on page 2. Showcase different skills or technologies you've worked with.
+                        </p>
+                    </li>
+
+                    <li class="article-item">
+                        <div class="article-header">
+                            <h3 class="article-title">
+                                <a href="https://github.com/Usha-2712/project-7" target="_blank">
+                                    <img src="github.png" alt="GitHub">Project Title 7
+                                </a>
+                            </h3>
+                            <span class="article-date">January, 2025</span>
+                        </div>
+                        <p class="article-excerpt">
+                            Another project description highlighting your versatility and range of skills.
+                        </p>
+                    </li>
+                </ul>
+
+                <div class="pagination" id="home-pagination-page2">
+                    <a href="#" class="pagination-button prev" id="prev-page" onclick="goToPage(1); return false;">
+                        <span class="pagination-arrow"></span>
+                    </a>
+                    <span class="pagination-info">PAGE 2 OF 2</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="content-section" style="display: none;">
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>
+                    I am a passionate professional dedicated to creating innovative solutions and delivering 
+                    high-quality work. With expertise in various technologies and a commitment to continuous 
+                    learning, I strive to make a meaningful impact through my projects.
+                </p>
+                <p>
+                    2+ years of experience as a Data Engineer and Data Analyst,specializing in designing, building, and optimizing scalable cloudbased data platforms
+                </p>
+                <p>
+                    Hands-on expertise across the end-to-end data engineeringlifecycle, including data ingestion, ETL/ELT pipelines, data modeling, validation, and analytics enablement.
+                </p>
+                <p>
+                    Proficient in developing secure, incremental data extraction and transformation workflows using Python, SQL, SSIS, dbt, APIs, AWS Lambda, and cloud-native services.
+                </p>
+                <p>
+                    Experienced in migrating and consolidating large datasets fromlegacy systems to cloud data warehouses (Snowflake), driving performance improvements and cost reductions.
+                </p>
+
+                <h2 style="margin-top: 3rem; margin-bottom: 1.5rem;">Skills & Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <ul class="skill-list">
+                            <li>JavaScript/TypeScript</li>
+                            <li>Python</li>
+                            <li>Java</li>
+                            <li>Shell Scripting</li>
+                            <li>SQL</li>
+                            <li>R</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Operating Systems</h3>
+                        <ul class="skill-list">
+                            <li>Linux</li>
+                            <li>Unix</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Big Data & Business Intelligence Tools</h3>
+                        <ul class="skill-list">
+                            <li>Snowflake</li>
+                            <li>dbt</li>
+                            <li>Apache Spark</li>
+                            <li>PostgreSQL</li>
+                            <li>Apche Kafka</li>
+                            <li>Talend</li>
+                            <li>SSIS</li>
+                            <li>Google BigQuery</li>
+                            <li>SQL Server</li>
+                            <li>Toad</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Data Visualization & Analysis</h3>
+                        <ul class="skill-list">
+                            <li>Tableau</li>
+                            <li>Microsoft Excel</li>
+                            <li>plotly</li>
+                            <li>flourish</li>
+                            <li>Datawrapper</li>
+                            <li>Looker</li>
+                            <li>Pandas</li>
+                            <li>Numpy</li>
+                            <li>Matplotlib</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Cloud & CI/CD Tools</h3>
+                        <ul class="skill-list">
+                            <li>AWS</li>
+                            <li>Azure</li>
+                            <li>Google Cloud Platform(GCP)</li>
+                            <li>Github</li>
+                            <li>Docker</li>
+                            <li>Jenkins</li>
+                            <li>Terraform</li>
+                            <li>Kubernetes</li>
+                            <li>Bitbucket(Stash)</li>
+                            <li>Apache Airflow</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Other Skills</h3>
+                        <ul class="skill-list">
+                            <li>Problem Solving</li>
+                            <li>Team Collaboration</li>
+                            <li>Agile Methodology</li>
+                            <li>Technical Writing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Usha Lalam. All rights reserved.</p>
+    </footer>
+
+
+    <script>
+        // Function to change favicon
+        function changeFavicon(letter) {
+            const favicon = document.getElementById('favicon');
+            if (favicon) {
+                const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold' font-family='Arial, sans-serif' fill='%23333'>${letter}</text></svg>`;
+                favicon.href = 'data:image/svg+xml,' + encodeURIComponent(svg);
+            }
+        }
+
+        // Navigation functionality
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show selected section and update title
+            if (sectionId === 'home') {
+                // Show home page 1 by default
+                const homePage1 = document.getElementById('home');
+                const homePage2 = document.getElementById('home-page2');
+                if (homePage1) homePage1.style.display = 'block';
+                if (homePage2) homePage2.style.display = 'none';
+                document.title = 'Home-ushalalam';
+                changeFavicon('H');
+            } else {
+                const selectedSection = document.getElementById(sectionId);
+                if (selectedSection) {
+                    selectedSection.style.display = 'block';
+                }
+                // Update title based on section
+                if (sectionId === 'about') {
+                    document.title = 'About-ushalalam';
+                    changeFavicon('A');
+                } else {
+                    document.title = sectionId + '-ushalalam';
+                    changeFavicon(sectionId.charAt(0).toUpperCase());
+                }
+            }
+
+            // Update active nav link
+            const navLinks = document.querySelectorAll('.sidebar-nav a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+
+            // Close mobile sidebar after selection
+            if (window.innerWidth <= 1024) {
+                document.getElementById('sidebar').classList.remove('open');
+            }
+        }
+
+        // Mobile sidebar toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.querySelector('.mobile-toggle');
+            
+            if (window.innerWidth <= 1024 && 
+                sidebar.classList.contains('open') && 
+                !sidebar.contains(event.target) && 
+                !toggle.contains(event.target)) {
+                sidebar.classList.remove('open');
+            }
+        });
+
+        // Page navigation for projects
+        function goToPage(pageNumber) {
+            const homePage1 = document.getElementById('home');
+            const homePage2 = document.getElementById('home-page2');
+            
+            if (pageNumber === 1) {
+                homePage1.style.display = 'block';
+                homePage2.style.display = 'none';
+                // Scroll to top of content
+                document.querySelector('.main-content').scrollTop = 0;
+            } else if (pageNumber === 2) {
+                homePage1.style.display = 'none';
+                homePage2.style.display = 'block';
+                // Scroll to top of content
+                document.querySelector('.main-content').scrollTop = 0;
+            }
+        }
+
+        // Credit Score Prediction Background Change on Hover
+        document.addEventListener('DOMContentLoaded', function() {
+            const creditProject = document.querySelector('.credit-score-project');
+            const wineyardProject = document.querySelector('.wineyard-project');
+            const homeSection = document.getElementById('home');
+            const homePage2Section = document.getElementById('home-page2');
+            
+            if (creditProject) {
+                creditProject.addEventListener('mouseenter', function() {
+                    // Check which section is currently visible and apply background to it
+                    const computedStyle1 = window.getComputedStyle(homeSection);
+                    const computedStyle2 = window.getComputedStyle(homePage2Section);
+                    
+                    if (computedStyle1.display !== 'none') {
+                        homeSection.classList.add('credit-background');
+                    }
+                    if (computedStyle2.display !== 'none') {
+                        homePage2Section.classList.add('credit-background');
+                    }
+                });
+                
+                creditProject.addEventListener('mouseleave', function() {
+                    // Remove background from both sections
+                    homeSection.classList.remove('credit-background');
+                    if (homePage2Section) {
+                        homePage2Section.classList.remove('credit-background');
+                    }
+                });
+            }
+
+            // WineyardAnalysis Background Change on Hover
+            if (wineyardProject) {
+                wineyardProject.addEventListener('mouseenter', function() {
+                    // Check which section is currently visible and apply background to it
+                    const computedStyle1 = window.getComputedStyle(homeSection);
+                    const computedStyle2 = window.getComputedStyle(homePage2Section);
+                    
+                    if (computedStyle1.display !== 'none') {
+                        homeSection.classList.add('wineyard-background');
+                    }
+                    if (computedStyle2.display !== 'none') {
+                        homePage2Section.classList.add('wineyard-background');
+                    }
+                });
+                
+                wineyardProject.addEventListener('mouseleave', function() {
+                    // Remove background from both sections
+                    homeSection.classList.remove('wineyard-background');
+                    if (homePage2Section) {
+                        homePage2Section.classList.remove('wineyard-background');
+                    }
+                });
+            }
+        });
+
+        // Handle initial hash navigation
+        window.addEventListener('DOMContentLoaded', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash && ['home', 'about', 'projects', 'contact'].includes(hash)) {
+                showSection(hash);
+                // Update active nav link
+                const navLinks = document.querySelectorAll('.sidebar-nav a');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + hash) {
+                        link.classList.add('active');
+                    }
+                });
+            } else {
+                // Set default title for home
+                document.title = 'home-ushalalam';
+                changeFavicon('H');
+            }
+        });
+    </script>
+</body>
+</html>
