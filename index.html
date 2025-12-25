@@ -208,6 +208,11 @@
             background-image: url('eff rainbow.jpg');
         }
 
+        #home.aibot-background,
+        #home-page2.aibot-background {
+            background-image: url('aibot-bg.png');
+        }
+
         #home::before,
         #home-page2::before,
         #about::before {
@@ -653,7 +658,7 @@
                     <span class="section-title">Featured</span>
                 </div>
                 
-                <article class="featured-post">
+                <article class="featured-post aibot-project">
                     <div class="post-date">Featured / May, 2025</div>
                     <h2 class="post-title">
                         <a href="https://github.com/Usha-2712/AItransactionbot" target="_blank">
@@ -995,6 +1000,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const creditProject = document.querySelector('.credit-score-project');
             const wineyardProject = document.querySelector('.wineyard-project');
+            const aibotProject = document.querySelector('.aibot-project');
             const homeSection = document.getElementById('home');
             const homePage2Section = document.getElementById('home-page2');
             
@@ -1041,6 +1047,30 @@
                     homeSection.classList.remove('wineyard-background');
                     if (homePage2Section) {
                         homePage2Section.classList.remove('wineyard-background');
+                    }
+                });
+            }
+
+            // AI Transaction Bot Background Change on Hover
+            if (aibotProject) {
+                aibotProject.addEventListener('mouseenter', function() {
+                    // Check which section is currently visible and apply background to it
+                    const computedStyle1 = window.getComputedStyle(homeSection);
+                    const computedStyle2 = window.getComputedStyle(homePage2Section);
+                    
+                    if (computedStyle1.display !== 'none') {
+                        homeSection.classList.add('aibot-background');
+                    }
+                    if (computedStyle2.display !== 'none') {
+                        homePage2Section.classList.add('aibot-background');
+                    }
+                });
+                
+                aibotProject.addEventListener('mouseleave', function() {
+                    // Remove background from both sections
+                    homeSection.classList.remove('aibot-background');
+                    if (homePage2Section) {
+                        homePage2Section.classList.remove('aibot-background');
                     }
                 });
             }
