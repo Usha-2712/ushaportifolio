@@ -226,6 +226,16 @@
             z-index: 0;
         }
 
+        /* Hide overlay when background classes are active to show original colors */
+        #home.credit-background::before,
+        #home-page2.credit-background::before,
+        #home.wineyard-background::before,
+        #home-page2.wineyard-background::before,
+        #home.aibot-background::before,
+        #home-page2.aibot-background::before {
+            display: none;
+        }
+
         #home > *,
         #home-page2 > *,
         #about > * {
